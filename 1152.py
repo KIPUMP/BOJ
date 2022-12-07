@@ -1,5 +1,3 @@
-a,b = map(int, input().split())
-
-result = a / b
-
-print(result)
+#  다시 한번
+s = input().split()
+print(len(s))
