@@ -1,10 +1,10 @@
 n = int(input())
+charactor = 666
 cnt = 0
-six_n = 666
 while True :
-  if '666' in str(six_n) :
+  if '666' in str(charactor) :
     cnt += 1
   if cnt == n :
-    print(six_n)
+    print(charactor)
     break
-  six_n += 1
+  charactor += 1
