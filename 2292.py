@@ -1,5 +1,8 @@
 n = int(input())
+num = 1
+cnt = 1
+while n > num :
+  num += 6 * cnt
+  cnt += 1
 
-x = (n+6) // 6
-
-print(x)
+print(cnt)
