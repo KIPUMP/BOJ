@@ -1,10 +1,16 @@
+def plus_num(x) :
+  if x % 10 == x :
+    return x
+  else :
+    return plus_num(x//10) + (x % 10)
+
 n = int(input())
+arr= []
 for i in range(n) :
-  total = 0
-  while i > 0  :
-    total += i % 10
-    i //= 10
-  
-  if n == i + total :
-    print(i)
-    break
+  if n == i + plus_num(i) :
+    arr.append(i)
+
+if len(arr) == 0 :
+  print(0)
+else :
+  print(min(arr))
