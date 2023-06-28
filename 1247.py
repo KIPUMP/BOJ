@@ -1,13 +1,19 @@
-while True:
-    n = int(input())
-    sum = 0
-    for i in range(0,n) :
-        x = int(input())
-        sum += x
+import sys
+result = []
+for _ in range(3) :
+    arr =  []
+    n = int(sys.stdin.readline())
 
-    if sum > 0 :
-        print("+")
-    elif sum < 0 :
-        print("-")
+    for _ in range(n) :
+        arr.append(int(sys.stdin.readline()))
+
+    if sum(arr) > 0 :
+        result.append("+")
+    elif sum(arr) < 0 :
+        result.append("-")
     else :
-        print("0")
+        result.append("0")
+
+
+for i in result :
+    print(i)
