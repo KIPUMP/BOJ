@@ -8,8 +8,6 @@ def GCD(x,y) :
 
 T = int(input())
 
-
-
 for _ in range(T) :
   a,b = map(int,input().split())
   result = (a*b) // GCD(a,b)
