@@ -13,10 +13,12 @@ def dfs() :
         print(*result)
         return
     # dfs 실시 
+    remember = 0
     for i in range(n) :
-        if visited[i] == False :
+        if visited[i] == False and remember != arr[i] :
             visited[i] = True
             result.append(arr[i])
+            remember = arr[i]
             dfs()
             visited[i] = False
             result.pop()
