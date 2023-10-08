@@ -1,16 +1,27 @@
-n,c = map(int,input().split())
-home = []
-for _ in range(n) :
-  home.append(int(input()))
+import sys
+input = sys.stdin.readline
 
-home.sort()
+N, C = map(int,input().split())
+array = [int(input()) for _ in range(N)]
+array.sort() 
 
-start = home[0]
-end = home[-1]
+start = 1 
+end = array[-1] - array[0] 
+answer = 0
 
-wifi = (start + end) // 2
-for i in range(n) :
-  if wifi - 1  <= home[i] <= wifi + 1 :
-    home[i]
+while start <= end :
+  cur = array[0]
+  cnt = 1 
+  mid = (start+end) // 2
+  for i in range(1,N) :
+    if array[i] - cur >= mid :
+      cnt += 1
+      cur = array[i] 
+  if cnt >= C :
+    if answer < mid : 
+      answer = mid
+    start = mid + 1
+  else :
+    end = mid - 1
 
-  
+print(answer)
