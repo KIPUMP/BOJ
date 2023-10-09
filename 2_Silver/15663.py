@@ -12,8 +12,9 @@ def dfs() :
     if len(result) == m :       
         print(*result)
         return
-    # dfs 실시 
+    # 중복 체크
     remember = 0
+    # dfs 실시
     for i in range(n) :
         if visited[i] == False and remember != arr[i] :
             visited[i] = True
