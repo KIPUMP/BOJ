@@ -1,7 +1,9 @@
 import sys
 read = sys.stdin.readline
 
-word1, word2 = read().strip(), read().strip()
+word1 = input()
+word2 = input()
+
 h, w = len(word1), len(word2)
 cache = [[0] * (w+1) for _ in range(h+1)]
 
