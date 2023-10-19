@@ -12,5 +12,5 @@ for _ in range(int(input())) :
   for i in range(2,n) :
     d[0][i] += max(d[1][i-1],d[1][i-2])
     d[1][i] += max(d[0][i-1],d[0][i-2])
-
+  
   print(max(d[0][n-1],d[1][n-1]))
