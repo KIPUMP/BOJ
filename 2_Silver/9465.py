@@ -6,7 +6,7 @@ for _ in range(int(input())) :
   d = [list(map(int,input().split())) for _ in range(2)]
 
   if n > 1 :
-    d[0][1] += d[1][0]
+    d[1][0] += d[0][1]
     d[1][1] += d[0][0]
 
   for i in range(2,n) :
