@@ -1,24 +1,21 @@
 import sys
 input = sys.stdin.readline
-n,m = map(int,input().split())
-d = [0] * 100001
-square = []
-dot = []
 
-for _ in range(m) :
-    dot.append(list(map(int,input().split())))
+n, m = map(int, input().split())
+
+arr = []
+for i in range(n):
+    a = list(map(int, input().split()))
+    arr.append(a)
     
-for i in range(n) :
-    square.append(list(map(int,input().split())))
-tmp = 0
-d[0] = square[0][0]
-for i in range(len(d)) :
-    for j in range(n) :
-        tmp += square[i%n][j]
-        d[i][j] = tmp
+dp = [[0]*(n+1) for i in range(n+1)]
+
+for i in range(1, n+1):
+    for j in range(1, n+1):
+        dp[i][j] = dp[i][j-1] + dp[i-1][j] - dp[i-1][j-1] + arr[i-1][j-1]
         
-for i in range(m) :
-    # print(d[dot[i][0]][dot[i][1]] - d[dot[i][2]][dot[i][3]])
-    print(d[dot[i][0]][dot[i][1]] - d[dot[i][2]][dot[i][3]])
+for k in range(m):
+    x1,y1,x2,y2 = map(int,input().split())
     
-            
+    result = dp[x2][y2] - dp[x2][y1-1] -dp[x1-1][y2] + dp[x1-1][y1-1]
+    print(result)
