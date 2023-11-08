@@ -3,10 +3,7 @@ input = sys.stdin.readline
 n,x = map(int,input().split())
 visit = list(map(int,input().split()))
 
-d = [0] * (n+1)
-d[0] = 0
 tmp = sum(visit[:x])
-
 max_val = tmp
 cnt = 1
 for i in range(x,n) :
