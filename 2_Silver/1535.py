@@ -1,0 +1,14 @@
+n = int(input())
+L = [0] + list(map(int,input().split()))
+J = [0] + list(map(int,input().split()))
+
+d = [[0] * (101) for _ in range(n+1)]
+
+for i in range(1,n+1) :
+  for j in range(1,101) :
+    if L[i] <= j :
+      d[i][j] = max(d[i-1][j] , d[i-1][j-L[i]] + J[i])
+    else :
+      d[i][j] = d[i-1][j]
+
+print(d[n][99])
