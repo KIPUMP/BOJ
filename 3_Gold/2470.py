@@ -1,26 +1,23 @@
 n = int(input())
 liquid = sorted(map(int,input().split()))
-left,right = 0,1
+start ,end = 0 , n-1
+mixed = liquid[start] + liquid[end]
+result = [liquid[start],liquid[end]]
 
-def binary_search(target) :
+while start < end:
+    sum_val = liquid[start] + liquid[end]
     
-    start = 0
-    end = n - 1
-    while start <= end : 
+    if abs(mixed) > abs(sum_val) :
+        mixed = abs(sum_val)
+        result = [liquid[start],liquid[end]]
+        if mixed == 0 :
+            break
+        
+    if sum_val < 0 :
+        start += 1
+        
+    else :
+        end -= 1        
+    
 
-        mid = (start + end) // 2
-        
-        if liquid[mid] == target :
-            return mid
-        
-        elif liquid[mid] < target :
-            start = mid + 1
-            
-        else :
-            end = mid - 1
-            
-result = [[0] * n for _ in range(n)]
-while left <= right and right <= n :    
-    result.append((liquid[left],liquid[right]))
-    
-    
+print(*result)
