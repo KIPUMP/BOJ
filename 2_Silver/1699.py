@@ -1,6 +1,12 @@
 n = int(input())
-d = [0] * (n+1)
-d[1] = 1
-d[2] = 2
+d = [i for i in range(n+1)]
 
-for i in range(3,n+1) : 
+for i in range(1,n+1) :
+    for j in range(1,i) :
+        if j**2 > i :
+            break
+        else :
+            if d[i] > d[i - (j**2)] + 1:
+                d[i] = d[i - (j**2)] + 1
+                
+print(d[n])
