@@ -1,13 +1,16 @@
-import heapq,sys
+import heapq, sys
 input = sys.stdin.readline
-abs_heap = []
+arr = []
 
 for _ in range(int(input())) :
-    num = int(input())
-    if num :
-        heapq.heappush(abs_heap,(abs(num),num))
+    n = int(input())
+
+    if n :
+        heapq.heappush(arr,(abs(n),n))
     else :
-        if abs_heap :
-            print(heapq.heappop(abs_heap)[1])
+        if arr :
+            y = (heapq.heappop(arr)[1])
+            print(y)
         else :
             print(0)
+
