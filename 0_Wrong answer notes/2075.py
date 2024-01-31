@@ -6,7 +6,7 @@ heapq.heapify(arr)
 n = int(input())
 
 for _ in range(n) :
-    new_list = sorted(map(int,input().split()))
+    new_list = list(map(int,input().split()))
 
     for i in range(n) :
         if len(arr) < n :
@@ -16,6 +16,5 @@ for _ in range(n) :
             if arr[0] < new_list[i] :
                 heapq.heappop(arr)
                 heapq.heappush(arr,new_list[i])
-            
             
 print(arr[0])
