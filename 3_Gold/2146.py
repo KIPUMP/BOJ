@@ -6,7 +6,7 @@ n = int(input())
 arr = [list(map(int,input().split())) for _ in range(n)]
 visited = [[False] * n for _ in range(n)]
 
-dx = [0,-1,0,1]
+dx = [0,-1,0, 1]
 dy = [-1,0,1,0]
 
 
