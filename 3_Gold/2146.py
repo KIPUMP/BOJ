@@ -1,59 +1,60 @@
 from collections import deque
 import sys
+
 input = sys.stdin.readline
-sys.setrecursionlimit(10**6)
+
 n = int(input())
-arr = [list(map(int,input().split())) for _ in range(n)]
-visited = [[False] * n for _ in range(n)]
+graph = [list(map(int,input().split())) for _ in range(n)]
+visited = [[0] * n for _ in range(n)]
+num = 1
+res = int(1e9)
 
-dx = [0,-1,0, 1]
-dy = [-1,0,1,0]
+def bfs(i,j) :
+  que = deque()
+  que.append([i,j])
+  while que :
+    x,y = que.popleft()
+    for (h,w) in [[1,0],[0,1],[-1,0],[0,-1]] :
+      dx = x + h
+      dy = y + w
+      if 0 <= dx < n and 0 <= dy < n :
+        if not visited[dx][dy] and graph[dx][dy] :
+          visited[dx][dy] = 1
+          graph[dx][dy] = num 
+          que.append([dx,dy])
 
+def bfs2(v) :
+  queue = deque()
+  dist = [[-1] * n for _ in range(n)] 
+  
+  for i in range(n) :
+    for j in range(n) :
+      if graph[i][j] == v :
+        dist[i][j] = 0
+        queue.append([i,j])
 
-def dfs(x,y) :
-  visited[x][y] = True
-  for i in range(4) :
-    nx = x + dx[i]
-    ny = y + dy[i]
-    if 0 <= nx < n and 0 <= ny < n :
-        if not visited[nx][ny] and arr[nx][ny] == 1 :
-          dfs(nx,ny)
-
-queue = deque()
-
-def bfs(x,y) :
-  visited = [[False] * n for _ in range(n)]
-  queue.append((x,y))
-  visited[x][y] = True
-  cnt = 1
   while queue :
     x,y = queue.popleft()
-    for i in range(4) :
-      nx = x + dx[i]
-      ny = y + dy[i]
-      if 0 <= nx < n and 0 <= ny < n :
-        if not visited[nx][ny] :
-          if arr[nx][ny] == 0 :
-            cnt += 1
-            visited[nx][ny] = True
-            queue.append((nx,ny))
-          else :
-            return cnt
+    for (w,h) in [[1,0],[0,1],[-1,0],[0,-1]] :
+      dx, dy = x + w , y + h
+      if 0 <= dx < n and 0 <= dy < n :
+        if graph[dx][dy] and graph[dx][dy] != v :
+          return dist[x][y]
+        elif (not graph[dx][dy]) and dist[dx][dy] == -1 :
+          dist[dx][dy] = dist[x][y] + 1
+          queue.append([dx,dy])
 
-result = []
+
+  return int(1e9)
 
 for i in range(n) :
   for j in range(n) :
-    if not visited[i][j] and arr[i][j] == 1 :
-      dfs(i,j)
+    if graph[i][j] and not visited[i][j] :
+      visited[i][j] = 1
+      graph[i][j] = num 
+      bfs(i,j)
+      num += 1
 
-
-    if not visited[i][j] and arr[i][j] == 0 :
-      x = bfs(i,j)
-      result.append(x)
-
-
-
-print(result)
-
-
+for v in range(1,num) :
+  res = min(res,bfs2(v))
+print(res)
