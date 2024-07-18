@@ -1,6 +1,5 @@
 # https://www.acmicpc.net/problem/2480
 # 3개의 주사위의 나온 눈이 주어질 때, 상금을 계산하는 프로그램 작성
-
 dice = list(map(int,input().split()))       # 주사위 3개 눈 입력
 
 if dice[0] == dice[1] :                     # 1 번째 주사위와 2 번쨰 주사위가 같다면                    

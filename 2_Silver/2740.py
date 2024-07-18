@@ -1,33 +1,20 @@
-import sys
-input = sys.stdin.readline
+# https://www.acmicpc.net/problem/2740
+# 문제 해결 : 구현 , 문제 이해(배열의 곱)
+# (n,m) * (m,k) = (n*k)
 
 n,m = map(int,input().split())
-a = [[0] * m for _ in range(n)]
+arr_1 = [list(map(int,input().split())) for _ in range(n)]
+m,k = map(int,input().split())
+arr_2 =[list(map(int,input().split())) for _ in range(m)]
 
-for i in range(n) :
-  arr = list(map(int,input().split()))
-  for j in range(m) :
-    a[i][j] = arr[j]
+result_arr = [[0] * k for _ in range(n)]
 
-m,k= map(int,input().split())
-b = [[0] * k for _ in range(m)]
-
-for i in range(m) :
-  arr = list(map(int,input().split()))
-  for j in range(k) :
-    b[i][j] = arr[j]
-
-result = [[0] * k for _ in range(n)]
 
 for i in range(n) :
   for j in range(k) :
     for l in range(m) :
-      result[i][j] += a[i][l] * b[l][j]
+      result_arr[i][j] += arr_1[i][l] * arr_2[l][j]
+      
 
 for i in range(n) :
-  for j in range(k) :
-    print(result[i][j], end=" ")
-  print()
-
-    
-
+  print(*result_arr[i])
