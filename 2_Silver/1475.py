@@ -11,3 +11,4 @@ for i in n :
     result[int(i)] += 1
 
 print(max(result))
+
