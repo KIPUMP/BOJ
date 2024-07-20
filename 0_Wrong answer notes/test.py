@@ -1,20 +1,7 @@
-import sys
-sys.setrecursionlimit(10**6)
+v1 = [1, 5, 10]
+v2 = list(map(lambda x : x * 2, v1))
+print(v2)
 
-# def f(n) :
-#     if n == 1 :                     # 종료 조건
-#         return 1
-#     return f(n-1) + n               # 재귀 점화식
-
-# n = int(input())
-
-# print(f(n))    
-
-
-def fibo(n) :
-    
-    return 1 if n <= 2 else fibo(n-1) + fibo(n-2)
-    
-n = int(input())
-print(fibo(n))
-    
+list1 = [0, 1, 2, 3, 4]
+list2 = ['A', 'B', 'C', 'D']
+print(list(zip(list1, list2)))
