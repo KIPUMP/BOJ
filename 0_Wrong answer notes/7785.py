@@ -1,3 +1,4 @@
+#https://www.acmicpc.net/problem/7785
 n = int(input())
 
 enter_list = {}

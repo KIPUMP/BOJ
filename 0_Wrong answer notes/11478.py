@@ -1,10 +1,10 @@
+# https://www.acmicpc.net/problem/11478
 s = list(input())
 word = []
+word = set(word)
 
 for i in range(len(s)+1) :
     for j in range(i) :
-        word.append("".join(s[j:i]))
+        word.add("".join(s[j:i]))
 
-word_set = set(word)
-
-print(len(word_set))
+print(len(word))

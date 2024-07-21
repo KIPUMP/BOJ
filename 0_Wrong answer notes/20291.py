@@ -1,3 +1,4 @@
+# https://www.acmicpc.net/problem/20291
 file_dict = {}
 
 for _ in range(int(input())) :
