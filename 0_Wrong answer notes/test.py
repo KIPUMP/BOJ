@@ -1,7 +1,6 @@
-v1 = [1, 5, 10]
-v2 = list(map(lambda x : x * 2, v1))
-print(v2)
+# 계단을 1칸 올라갈 경우가 있고 2칸 올라갈 수 있는 경우가 있다
+# 계단을 올라갈 수 있는 경우의 수를 출력하라
+# 반복문 , 재귀 
 
-list1 = [0, 1, 2, 3, 4]
-list2 = ['A', 'B', 'C', 'D']
-print(list(zip(list1, list2)))
+n = int(input())
+

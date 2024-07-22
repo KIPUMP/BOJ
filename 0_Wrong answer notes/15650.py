@@ -11,7 +11,7 @@ def solution(start) :
         print(*result)
         return
     else :
-        for i in range(start,n+1) :                 # 하기 위해 start 변수 추가
+        for i in range(start,n+1) :                 # 순차적 접근 하기 위해 start 변수 추가
             if visited[i] :
                 continue
             else :
