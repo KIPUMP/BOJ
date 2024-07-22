@@ -1,17 +1,15 @@
+#https://www.acmicpc.net/problem/7785
 n = int(input())
-log = dict()
 
+enter_list = {}
+for i in range(n) : 
+    name, behavior = map(str,input().split())
+    if behavior == 'enter' :
+        enter_list[name] = behavior
+    else:
+        del enter_list[name]
+        
+enter_list = sorted(enter_list,reverse=True)
 
-for i in range(n) :
-  name, work = input().split()
-
-  if work == 'enter' :
-    log[name] = True
-
-  elif work == 'leave' :
-    del log[name]
-
-log = sorted(log, reverse=True)
-
-for i in log :
-  print(i)
+for i in enter_list :
+    print(i)

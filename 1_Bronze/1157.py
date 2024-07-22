@@ -1,13 +1,22 @@
-words = input().upper()
-unique_words = list(set(words))  # 입력받은 문자열에서 중복값을 제거
+# https://www.acmicpc.net/problem/1157
+word = list(input().rstrip().lower())
+word_set = set(word)
+word_dict = {}
 
-cnt_list = []
-for x in unique_words :
-    cnt = words.count(x)
-    cnt_list.append(cnt)  # count 숫자를 리스트에 append
+for i in word_set :
+    word_dict[i] = word.count(i)
+    
+    
+max_val = max(word_dict.values())
+cnt = 0
+key = ''
+for i in word_dict.keys() :
+    if max_val <= word_dict[i] :
+        key = i
+        cnt += 1
+        
 
-if cnt_list.count(max(cnt_list)) > 1 :  # count 숫자 최대값이 중복되면
+if cnt > 1 :
     print('?')
 else :
-    max_index = cnt_list.index(max(cnt_list))  # count 숫자 최대값 인덱스(위치)
-    print(unique_words[max_index])
+    print(key.upper())
