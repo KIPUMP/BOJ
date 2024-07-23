@@ -1,3 +1,4 @@
+# https://www.acmicpc.net/problem/1244
 n = int(input())
 switches = [0] + list(map(int, input().split())) # 인덱스 맞춰주기 위해
 k = int(input())
@@ -31,14 +32,14 @@ for x, y in arr:
             else:
                 break # 대칭 아니면 break
         
-        if len(check) >= 2: # 대칭이므로 무조건 2개 이상 들어가 있음
+        if len(check) >= 2: # 무조건 2개 이상 들어가 있음
             for i in check:
                 if switches[i] == 1 :
                     switches[i] = 0
                 else :
                     switches[i] = 1
         
-        else:               
+        else: 
             if switches[y] == 1 :
                 switches[y] = 0
             else :
