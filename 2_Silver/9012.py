@@ -1,27 +1,29 @@
-import sys
-T = int(sys.stdin.readline())
+n = int(input())
+cnt = 0
 
-for _ in range(T) :
-  VPS = input()
-  arr = list(VPS)
-  
-  while len(arr) > 2 :
-    if arr[0] == ")" :
-      break
-
-    else :
-      arr.remove("(")
-      for i in arr :
-        if i == ")" :
-          arr.remove(")")
-          break
-
-  if arr == ["(",")"] :
-    print("YES")
-  else : 
-    print("NO")
-    
-
-    
-
+for _ in range(n) :
+    arr=[]    
+    vps = list(input().strip())             # 괄호 입력
+    while True :                    
+        if len(vps) == 0 :                  # vps가 0일때
+            
+            if len(arr) == 0 :              # arr이 0이면
+                print("YES")
+                break
+            
+            else :                          
+                print("NO")
+                break
+            
+        x = vps.pop()
         
+        if x == ")" :
+            arr.append(x)
+            
+        else :
+            if len(arr) == 0 :      # arr이 0 이면 닫아줄 괄호가 없다
+                print("NO")
+                break
+            
+            else : 
+                arr.pop()
