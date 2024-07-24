@@ -1,15 +1,23 @@
 import heapq
 n = int(input())
-q = []
 
+result = []
 for _ in range(n) :
     arr = list(map(int,input().split()))
     for i in range(n) :
-        if len(q) < n :
-            heapq.heappush(q,arr[i])
+        if len(result) < n :
+            heapq.heappush(result,arr[i])
         else :
-            if q[0] < arr[i] :
-                heapq.heappop(q)
-                heapq.heappush(q,arr[i])
-                
-print(q[0])        
+            if result[0] < arr[i] :
+                heapq.heappop(result)
+                heapq.heappush(result,arr[i])
+    
+print(result[0])
+    
+
+
+    
+
+        
+        
+    
