@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/1914
+
 import sys
 sys.setrecursionlimit(10**6)                # 재귀 깊이 설정
 
