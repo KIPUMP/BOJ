@@ -16,8 +16,8 @@ result = []
 
 for i in range(m) :
     if card[arr_2[i]] == 0  :
-        result.append(0)
+        result.append(0)                    
     else :
-        result.append(card[arr_2[i]])
+        result.append(card[arr_2[i]])       
         
 print(*result)
