@@ -1,5 +1,5 @@
-# 1차 서류 심사 최소 점수인 지원자들부터 2차 면접 점수를 비교
 # https://www.acmicpc.net/problem/1946
+# 1차 서류 심사 최소 점수인 지원자들부터 2차 면접 점수를 비교
 import sys
 input = sys.stdin.readline
 
