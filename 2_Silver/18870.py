@@ -10,6 +10,7 @@ result = dict()
 for i in range(len(arr_sorted)) :
   result[arr_sorted[i]] = i
 
+
 for i in range(len(arr)) :
   print(result[arr[i]], end=" ")
 

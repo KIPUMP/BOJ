@@ -1,15 +1,18 @@
+# https://www.acmicpc.net/problem/1181
+import sys
+input = sys.stdin.readline
+
 n = int(input())
 word = []
+
 for _ in range(n) :
   word.append(input())
 
-
-set_word = set(word)
-word = list(set_word)
-word.sort()
-word.sort(key = len)
-
+word = sorted(set(word)) # 중복 제거 
+word = sorted(word, key = lambda x : len(x)) # 길이 정렬
 
 for i in word :
-  print(i)
-  
+  print(i,end="")
+
+
+# 35732	84
