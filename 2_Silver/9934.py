@@ -8,6 +8,7 @@ dx = [0,-1,0,1]
 dy = [-1,0,1,0]
 
 result = set()                                  # 중복을 피하기 위한 set
+
 def dfs(x,y) :                                  # dfs 기반 백트래킹
     
     global number

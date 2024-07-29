@@ -28,4 +28,5 @@ make_tree(arr,0)
 
 for i in range(k) :
     print(*result[i])
-        
+
+#	34044	64
