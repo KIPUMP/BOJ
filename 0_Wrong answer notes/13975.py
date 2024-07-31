@@ -1,4 +1,6 @@
+# 코딩테스트 2주차
 # https://www.acmicpc.net/problem/13975
+
 import sys,heapq
 input = sys.stdin.readline
 

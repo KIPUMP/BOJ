@@ -1,3 +1,4 @@
+# 코딩테스트 2주차
 # https://www.acmicpc.net/problem/1939
 
 import sys
@@ -25,14 +26,14 @@ def bfs(start, end, weight_limit):
 
 def binary_search():
     low, high = 1, 1000000000               # 중량 제한 범위 설정
-    result = low                            # 
+    result = low                            
     
     while low <= high:
         mid = (low + high) // 2
-        if bfs(start, end, mid):
-            result = mid
+        if bfs(start, end, mid):            
+            result = mid                    # mid 탐색 
             low = mid + 1
-        else:
+        else:                               # 발견하지 못하면 high 값을 줄이는 방식으로 재탐색
             high = mid - 1
     
     return result

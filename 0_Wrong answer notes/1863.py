@@ -1,3 +1,4 @@
+# 코딩테스트 2주차
 # https://www.acmicpc.net/problem/1863
 # 이전 점보다 y값이 작아지는 지점에서 건물을 세어주면 된다. 
 import sys

@@ -1,3 +1,4 @@
+# 코딩테스트 2주차
 # https://www.acmicpc.net/problem/1697
 from collections import deque
 
