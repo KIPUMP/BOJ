@@ -1,5 +1,9 @@
+# https://www.acmicpc.net/problem/25206
+# 학점 계산 , P인 과목을 계산에서 뺀다
+
 sum_val = 0
 cnt = 0
+
 for _ in range(20) :
     subject,grade,cost = input().split()
     cnt += float(grade)
@@ -28,5 +32,4 @@ for _ in range(20) :
 
 print(f"{sum_val / cnt:.6f}")
     
-    
-    
+            
