@@ -1,3 +1,4 @@
+# https://www.acmicpc.net/problem/2290
 def create_segment(size, top, middle, bottom, top_left, top_right, bottom_left, bottom_right):
     segment = []
     segment.append(" " + top * size + " ")

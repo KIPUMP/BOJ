@@ -1,21 +1,26 @@
-arr = []
-sum_val = 0
+dwarfs = []
+
+def solution(arr, sub_val) :
+    for i in range(len(arr)) :
+        for j in range(i) :
+            if arr[i] + arr[j] == sub_val :
+                arr.remove(arr[i])
+                arr.remove(arr[j])
+                return arr 
+            
 for _ in range(9) :
-  arr.append(int(input()))
+    dwarfs.append(int(input()))
 
-dept = sum(arr) - 100
+# 난쟁이 키의 차(7 난쟁이가 아닌 2 난쟁이 키의 합)
+sub_val = sum(dwarfs) - 100    
+
+result = solution(dwarfs,sub_val) 
+
+result.sort()
+
+for i in result :
+    print(i)
 
 
-for i in arr :
-  for j in arr :
-    if i+j == dept and i is not j :
-      arr.remove(i)
-      arr.remove(j)
-      break
-  if sum(arr) == 100 :
-    break
+# 31120	40
 
-arr.sort()
-
-for i in arr :
-  print(i)

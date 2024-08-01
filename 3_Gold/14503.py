@@ -1,3 +1,4 @@
+# https://www.acmicpc.net/problem/14503
 def clean_room(n,m,r,c,d,grid) :
     dx = [-1, 0, 1, 0]
     dy = [0, 1, 0, -1]
