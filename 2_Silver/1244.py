@@ -1,49 +1,35 @@
-# https://www.acmicpc.net/problem/1244
-n = int(input())
-switches = [0] + list(map(int, input().split())) # 인덱스 맞춰주기 위해
-k = int(input())
-arr = []
+import sys
+input = sys.stdin.readline
 
-for _ in range(k):
-    x, y = map(int, input().split())
-    arr.append((x, y))
+def switch_light(n) :
+    if n == 1 :
+        return 0
+    else :
+        return 1
 
-for x, y in arr:
-    if x == 1: # 남학생이라면
-        
-        for i in range(y, n+1, y): # 받은 수의 배수인 스위치 번호에 대해서
-                if switches[i] == 1 :
-                    switches[i] = 0
-                else :
-                    switches[i] = 1
-       
-    else: # 여학생이라면
-        check = []
-        check.append(y)
-        left = len(switches[1:y]) # 대칭의 왼쪽 부분
-        right = len(switches[y+1:]) # 대칭의 오른쪽 부분
-        min_len = min(left, right) # 둘 중에 짧은 부분의 길이 기준
-
-
-        for i in range(1, min_len+1):
-            if switches[y-i] == switches[y+i]: # 대칭이라면 append
-                check.append(y-i)
-                check.append(y+i)
-            else:
-                break # 대칭 아니면 break
-        
-        if len(check) >= 2: # 무조건 2개 이상 들어가 있음
-            for i in check:
-                if switches[i] == 1 :
-                    switches[i] = 0
-                else :
-                    switches[i] = 1
-        
-        else: 
-            if switches[y] == 1 :
-                switches[y] = 0
+n = int(input())                                # 스위치 개수
+switch = list(map(int,input().split()))         # 스위치
+students = int(input())                         # 학생 수
+for _ in range(students) :
+    gender, number = map(int,input().split())       # 성별 , 숫자
+    # 남학생
+    if gender == 1 :
+        for i in range(number-1,n,number) :
+            switch[i] = switch_light(switch[i])
+        # print(*switch)
+    # 여학생
+    else :
+        min_size = min(len(switch[:number-1]),len(switch[number:]))
+        switch[number-1] = switch_light(switch[number-1])
+        # print(*switch)
+        for i in range(1,min_size+1) :
+            if switch[number-i-1] != switch[number+(i-1)] :
+                break
             else :
-                switches[y] = 1
-            
-for i in range(1, n+1, 20):
-    print(*switches[i:i+20])
+                switch[number-i-1] = switch_light(switch[number-i-1])
+                switch[number+(i-1)] = switch_light(switch[number+(i-1)])
+
+for i in range(0,n,20) :
+    print(*switch[i:i+20])
+    
+# 31120	40
