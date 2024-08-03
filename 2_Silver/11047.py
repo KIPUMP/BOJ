@@ -1,20 +1,19 @@
-N,K = map(int,input().split())
-coin = []
-for _ in range(N) :
-  coin.append(int(input()))
+# https://www.acmicpc.net/problem/11047
 
-coin.sort()
-coin.reverse()
-cnt = 0
-for i in coin :
-  if i > K :
-    continue
-  cnt += (K // i)
-  K %= i
+import sys
+input = sys.stdin.readline
 
-  if K == 0 :
-    break
+n,k = map(int,input().split())
+coins = []
+for _ in range(n) :
+    coins.append(int(input()))
+    
+coins = sorted(coins,reverse=True)
+count = 0
+for i in coins :
+    count += k // i
+    k %= i
+    
+print(count)
 
-print(cnt)
-
-  
+# 31120	36
