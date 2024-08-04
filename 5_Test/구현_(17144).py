@@ -35,36 +35,32 @@ def spread_dust(arr):
 
 # 공기청정기 작동 (상단 청정기 x 좌표, 하단 청정기 x 좌표) 
 def cleaner(upper, lower):
-    # 상단 청정기 (반시계 방향)
-    # 아래쪽에서 위로 이동
-    for i in range(upper - 1, 0, -1):
-        arr[i][0] = arr[i - 1][0]
-    # 왼쪽에서 오른쪽으로 이동
-    for i in range(c - 1):
-        arr[0][i] = arr[0][i + 1]
-    # 위쪽에서 아래로 이동
-    for i in range(upper):
-        arr[i][c - 1] = arr[i + 1][c - 1]
-    # 오른쪽에서 왼쪽으로 이동
-    for i in range(c - 1, 1, -1):
-        arr[upper][i] = arr[upper][i - 1]
-    arr[upper][1] = 0  # 청정 후 공기 배출
-
-    # 하단 청정기 (시계 방향)
-    # 위쪽에서 아래로 이동
-    for i in range(lower + 1, r - 1):
-        arr[i][0] = arr[i + 1][0]
-    # 왼쪽에서 오른쪽으로 이동
-    for i in range(c - 1):
-        arr[r - 1][i] = arr[r - 1][i + 1]
-    # 아래쪽에서 위로 이동
-    for i in range(r - 1, lower, -1):
-        arr[i][c - 1] = arr[i - 1][c - 1]
-    # 오른쪽에서 왼쪽으로 이동
-    for i in range(c - 1, 1, -1):
-        arr[lower][i] = arr[lower][i - 1]
-    arr[lower][1] = 0  # 청정 후 공기 배출
-
+    for i in range(upper - 1, 0, -1) :
+        arr[i][0] = arr[i-1][0]
+    for i in range(c-1) :
+        arr[0][i] = arr[0][i+1]
+    for i in range(upper) :
+        arr[i][c-1] = arr[i+1][c-1]
+    for i in range(c-1,1,-1) :
+        arr[upper][i] = arr[upper][i-1]
+        
+    arr[upper][1] = 0
+    
+    for i in range(lower+1,r-1) :
+        arr[i][0] = arr[i+1][0]
+        
+    for i in range(c-1):
+        arr[r-1][i] = arr[r-1][i+1]
+    
+    for i in range(r-1,lower,-1) :
+        arr[i][c-1] = arr[i-1][c-1]
+    
+    for i in range(c-1,1,-1) :
+        arr[lower][i] = arr[lower][i-1]
+        
+    arr[lower][1] = 0
+        
+        
 # 입력 읽기
 r, c, t = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(r)]
