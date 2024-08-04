@@ -8,11 +8,14 @@ student_count = [[0] * n for _ in range(5)]
 # 열로 순회한다.
 for i in range(5) :
   for j in range(n) :
-    for k in range(n) :
-      if students[j][i] == students[k][i] and j != k :
-        student_count[][] +=1
+    for k in range(j+1,n) :
+      if students[j][i] == students[k][i] :
+        student_count[k][j] = 1
+        student_count[j][k] = 1
 
-# 완성돤 dict()를 내림차순으로 정렬
-student_list = sorted(student_count.items(), key = lambda x : (-x[1],x[0]))
+cnt = []
 
-print(student_list[0][0])
+for i in student_count :
+  cnt.append(i.count(1))
+
+print(cnt.index(max(cnt))+1)
