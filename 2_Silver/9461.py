@@ -1,18 +1,16 @@
-import sys
-input = sys.stdin.readline
-sys.setrecursionlimit(10**6)
-d = [0] * 101
-def surf(n) :
-  if n <= 3 :
-    return 1
-  
-  if d[n] != 0:
-    return d[n]
+# https://www.acmicpc.net/problem/9461
+# LIS
 
-  d[n] = surf(n-2) + surf(n-3)
-  return d[n]
+n = int(input())
+arr = list(map(int,input().split()))
 
+dp = [1] * (n)
 
-for i in range(int(input())) :
-  n = int(input())  
-  print(surf(n))
+for i in range(n) :
+    for j in range(i) :
+        if arr[j] < arr[i] :
+            dp[i] = max(dp[i], dp[j] + 1)
+            
+print(max(dp))
+
+# 31120	224

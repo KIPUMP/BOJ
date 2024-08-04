@@ -1,11 +1,16 @@
-n = int(input())
-a = list(map(int,input().split()))
-d = [1] * 1001
-a.reverse()
+# https://www.acmicpc.net/problem/11722
 
-for i in range(n) :
+n = int(input())
+arr = list(map(int,input().split()))
+
+dp = [1] * (n+1)                    # 값 초기화
+
+for i in range(n) :     
     for j in range(i) :
-        if a[i] > a[j] :
-            d[i] = max(d[i],d[j]+1)
+        if arr[j] > arr[i] :        # i 보다 앞에 있는 값이 크다면 dp 값 비교하여 최신화
+            dp[i] = max(dp[i],dp[j] + 1)
             
-print(max(d))
+    
+print(max(dp))
+
+# 31120	168
