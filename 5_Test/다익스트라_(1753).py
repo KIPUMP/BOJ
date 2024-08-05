@@ -3,7 +3,7 @@ import sys, heapq
 input = sys.stdin.readline
 
 def dijkstra(graph,start,v) :               # 그래프 , 시작노드, 간선수
-    dist = [1e9] * v 
+    dist = [1e9] * v                        # 최단경로 초기화
     dist[start] = 0
     pq = [(0,start)]                        # 우선 순위 큐(가중치, 시작 노드)
 

@@ -6,20 +6,30 @@ def floyd_warshall(graph) :
     for k in range(n) :
         for i in range(n) :
             for j in range(n) :
-                if arr[i][j] == 0 :
-                    graph[i][j] =graph[i][k]+graph[k][j]
-                    
-                
-                
+                if graph[i][k] and graph[k][j] :
+                    graph[i][j] = True
     return graph
 
 n,m = map(int,input().split())
-arr = [[0] *n for _ in range(n)]
+arr = [[False] * n for _ in range(n)]
 
-for _ in range(m) :
+for i in range(m) :
     a,b = map(int,input().split())
-    arr[a-1][b-1] = 1
-    
+    arr[a-1][b-1] = True
+
 arr = floyd_warshall(arr)
 
-print(arr)
+result = 0
+
+for i in range(n) :
+    count = 0
+    for j in range(n) :
+        if arr[i][j] or arr[j][i] :
+            count +=1
+    
+    if count == n - 1 :
+        result += 1
+
+print(result)
+
+#	32436	4432

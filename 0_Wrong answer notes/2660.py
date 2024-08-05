@@ -5,12 +5,15 @@ def floyd_warrshall(graph) :
     for k in range(n) :
         for i in range(n):
             for j in range(n) :
-                if graph[i][j] == 0 :
+                if graph[i][j] > graph[i][k] + graph[k][j] :
                     graph[i][j] = graph[i][k] + graph[k][j]
             
     return graph
 
-graph = [[0] * n for _ in range(n)]
+graph = [[1e9] * n for _ in range(n)]
+
+for i in range(n) :
+    graph[i][i] = 0
 
 while True :
     a,b = map(int,input().split())
@@ -19,11 +22,18 @@ while True :
     graph[a-1][b-1] = 1
     graph[b-1][a-1] = 1
     
-print(graph)
 graph = floyd_warrshall(graph)
 
-print(graph)
+score = [max(i) for i in graph]
+min_score = min(score)
 
+candidate = [i+1 for i , j in enumerate(score) if j == min_score]
+
+print(min_score, len(candidate))
+print(' '.join(map(str,candidate)))
+
+
+# 31120	32	
 
 
     
