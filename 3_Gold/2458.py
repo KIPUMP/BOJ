@@ -19,13 +19,14 @@ for i in range(m) :
 
 arr = floyd_warshall(arr)
 
+print(arr)
 result = 0
 
 for i in range(n) :
     count = 0
     for j in range(n) :
         if arr[i][j] or arr[j][i] :
-            count +=1
+            count += 1
     
     if count == n - 1 :
         result += 1
