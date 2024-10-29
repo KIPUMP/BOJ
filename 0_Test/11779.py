@@ -46,3 +46,5 @@ result_cost, result_path = dijkstra(start - 1, end - 1)
 print(result_cost)
 print(len(result_path))
 print(" ".join(map(str, result_path)))
+
+# 	57396	2724
